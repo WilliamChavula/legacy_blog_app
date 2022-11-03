@@ -9,6 +9,7 @@ def get_all_posts():
 
     :return: Queryset<Post> object
     """
+
     return Post.published.all()
 
 

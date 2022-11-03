@@ -1,8 +1,21 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-{% for post in posts %} 
-    <h2>
+<section>
+  <div class="feature-posts">
+{% for post in posts %}
+    <div class="feature-post-container">
+      <a href="{% url 'blog:post_detail' post.post_id %}" class="feature-post-item">
+        <img src="{% get_static_prefix %}imgs/img-{{forloop.counter}}.jpg" class="w-100" alt="">
+        <div class="feature-post-caption">{{ post.title }}</div>
+      </a>
+      <p class="date">
+        Published {{ post.publish }} by {{ post.author }}
+      </p>
+    </div>
+    {% comment %} <h2>
       <a href="{% url 'blog:post_detail' post.post_id %}">
         {{ post.title }}
       </a>
@@ -10,6 +23,8 @@
     <p class="date">
       Published {{ post.publish }} by {{ post.author }}
     </p>
-    {{ post.body|escape|truncatewords:30|linebreaks }} 
+    {{ post.body|escape|truncatewords:30|linebreaks }}  {% endcomment %}
 {% endfor %}
+  </div>
+</section>
 {% endblock content %}

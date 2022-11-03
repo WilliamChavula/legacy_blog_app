@@ -145,7 +145,7 @@ SASS_OUTPUT_STYLE = 'compact'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "assets/blog_site/scss",
+    BASE_DIR / "assets",
 ]
 
 # Default primary key field type
