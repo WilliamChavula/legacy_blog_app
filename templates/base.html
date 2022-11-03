@@ -12,7 +12,18 @@
     <title>{% block title %} Legacy | Blog {% endblock title %}</title>
 </head>
 <body>
-    {% block content %}{% endblock content %}
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'blog:home' %}">
+                    Legacy Blog
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}{% endblock content %}
+    </div>
 </body>
 </html>
 
