@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for post in posts %}
+<h2>{{ post.title }}</h2>
+    {% comment %} <h2>
+      <a href="{% url 'blog:post_detail' post.id %}">
+        {{ post.title }}
+      </a>
+    </h2>
+    {% endcomment %}
+    <p class="date">
+      Published {{ post.publish }} by {{ post.author }}
+    </p>
+    {{ post.body|escape|truncatewords:30|linebreaks }} 
+{% endfor %}
+{% endblock content %}
