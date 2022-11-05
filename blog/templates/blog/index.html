@@ -7,14 +7,13 @@
   <link rel="stylesheet" href="{% sass_src 'blog/scss/main.scss' %}">
 {% endblock extra_styles %}
 
+<!-- page-header -->
 {% block header %}
   <header class="page-header"></header>
 {% endblock header %}
-
-{% block content %}
-<!-- page-header -->
 <!-- end of page header -->
 
+{% block content %}
 <section>
   <div class="row">  
     {% for post in posts %}                     
