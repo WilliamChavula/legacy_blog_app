@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block extra_styles %}
-<link rel="stylesheet" href="{% sass_src 'blog/scss/main.scss' %}">
+  <link rel="stylesheet" href="{% sass_src 'blog/scss/main.scss' %}">
 {% endblock extra_styles %}
 
 {% block header %}
@@ -22,8 +22,8 @@
         <div class="card text-center mb-5">
             <div class="card-header p-0">                                   
                 <div class="blog-media">
-                    <img src="{% get_static_prefix %}imgs/img-{{forloop.counter}}.jpg" alt="" class="w-100">
-                    <a href="{% url 'blog:post_detail' post.post_id %}" class="badge bg-primary">#Placeat</a>        
+                    <img src="{% get_static_prefix %}imgs/img-{{ forloop.counter }}.jpg" alt="" class="w-100">
+                    <a href="{% url 'blog:post_detail' post.post_id %}?key={{ forloop.counter }}" class="badge bg-primary">#Placeat</a>        
                 </div>  
             </div>
             <div class="card-body px-2">
@@ -36,7 +36,7 @@
             </div>
             
             <div class="card-footer p-0 text-center">
-                <a href="{% url 'blog:post_detail' post.post_id %}" class="btn btn-outline-dark btn-sm">READ MORE</a>
+                <a href="{% url 'blog:post_detail' post.post_id %}?key={{ forloop.counter }}" class="btn btn-outline-dark btn-sm">READ MORE</a>
             </div>                  
         </div>
       </div>
