@@ -1,30 +1,46 @@
 {% extends 'base.html' %}
 
+{% load sass_tags %}
 {% load static %}
 
+{% block extra_styles %}
+<link rel="stylesheet" href="{% sass_src 'blog/scss/main.scss' %}">
+{% endblock extra_styles %}
+
+{% block header %}
+  <header class="page-header"></header>
+{% endblock header %}
+
 {% block content %}
+<!-- page-header -->
+<!-- end of page header -->
+
 <section>
-  <div class="feature-posts">
-{% for post in posts %}
-    <div class="feature-post-container">
-      <a href="{% url 'blog:post_detail' post.post_id %}" class="feature-post-item">
-        <img src="{% get_static_prefix %}imgs/img-{{forloop.counter}}.jpg" class="w-100" alt="">
-        <div class="feature-post-caption">{{ post.title }}</div>
-      </a>
-      <p class="date">
-        Published {{ post.publish }} by {{ post.author }}
-      </p>
+  <div class="row">  
+    {% for post in posts %}                     
+    <div class="col-lg-6">
+        <div class="card text-center mb-5">
+            <div class="card-header p-0">                                   
+                <div class="blog-media">
+                    <img src="{% get_static_prefix %}imgs/img-{{forloop.counter}}.jpg" alt="" class="w-100">
+                    <a href="{% url 'blog:post_detail' post.post_id %}" class="badge bg-primary">#Placeat</a>        
+                </div>  
+            </div>
+            <div class="card-body px-2">
+                <h5 class="card-title mb-2">{{ post.title }}</h5>    
+                <small class="small text-muted">Published {{ post.publish }} by {{ post.author }}
+                    <span class="px-2">-</span>
+                    <a href="#" class="text-muted">34 Comments</a>
+                </small>
+                <p class="my-2">{{ post.body|truncatewords:30|linebreaks }}</p>
+            </div>
+            
+            <div class="card-footer p-0 text-center">
+                <a href="{% url 'blog:post_detail' post.post_id %}" class="btn btn-outline-dark btn-sm">READ MORE</a>
+            </div>                  
+        </div>
+      </div>
+    {% endfor %}
     </div>
-    {% comment %} <h2>
-      <a href="{% url 'blog:post_detail' post.post_id %}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <p class="date">
-      Published {{ post.publish }} by {{ post.author }}
-    </p>
-    {{ post.body|escape|truncatewords:30|linebreaks }}  {% endcomment %}
-{% endfor %}
-  </div>
-</section>
+  </section>
 {% endblock content %}

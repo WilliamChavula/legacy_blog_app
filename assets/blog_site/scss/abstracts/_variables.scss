@@ -14,6 +14,24 @@ $gray-800: #343a40;
 $gray-900: #212529;
 $black:    #000;
 
+$grays: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+
 $blue:    #007bff;
 $indigo:  #6610f2;
 $purple:  #6f42c1;
@@ -25,6 +43,27 @@ $green:   #9ccc65;
 $teal:    #c2f6ea;
 $cyan:    #81d4fa;
 
+$colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+  (
+    "blue":       $blue,
+    "indigo":     $indigo,
+    "purple":     $purple,
+    "pink":       $pink,
+    "red":        $red,
+    "orange":     $orange,
+    "yellow":     $yellow,
+    "green":      $green,
+    "teal":       $teal,
+    "cyan":       $cyan,
+    "white":      $white,
+    "gray":       $gray-600,
+    "gray-dark":  $gray-800
+  ),
+  $colors
+);
+
 $primary:       $teal;
 $secondary:     $gray-500;
 $success:       $green;
@@ -34,5 +73,36 @@ $danger:        $red;
 $light:         $gray-100;
 $dark:          $gray-800;
 
+$theme-colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+
 // FONTS
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base: 'Montserrat', sans-serif;
+
+// Navbar
+
+$navbar-min-height:               60px;
+$navbar-padding-y:                10px;
+$navbar-padding-x:                10px;
+
+$navbar-nav-link-padding-x:       .8rem;
+$navbar-nav-link-padding-y:       5px;
+$navbar-nav-link-font-size:       14px;
+$navbar-nav-link-font-weight:     600;
+
+$navbar-brand-image-width:        70px;

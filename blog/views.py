@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from blog.models import Post
 
 from blog.service import blog_post_service
 
