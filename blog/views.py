@@ -12,6 +12,5 @@ def index(request):
 def post_detail_view(request, post_id):
     post = blog_post_service.get_post_by_id(post_id)
 
-    print(request.GET)
-    img_number = request.GET.get('key')
+    img_number = request.GET.get('key', 1)
     return render(request, 'blog/post_detail.html', {'post': post, 'img_number': img_number})
