@@ -14,32 +14,53 @@
 <!-- end of page header -->
 
 {% block content %}
-<section>
-  <div class="row">  
-    {% for post in posts %}                     
-    <div class="col-lg-6">
-        <div class="card text-center mb-5">
-            <div class="card-header p-0">                                   
-                <div class="blog-media">
-                    <img src="{% get_static_prefix %}imgs/img-{{ forloop.counter }}.jpg" alt="" class="w-100">
-                    <a href="{% url 'blog:post_detail' post.post_id %}?key={{ forloop.counter }}" class="badge bg-primary">#Placeat</a>        
-                </div>  
+  <hr>
+  <div class="page-container">
+    <div class="page-content">
+      <div class="row">  
+        {% for post in posts %}                     
+        <div class="col-lg-6">
+            <div class="card text-center mb-5">
+                <div class="card-header p-0">                                   
+                    <div class="blog-media">
+                        <img src="{% get_static_prefix %}imgs/img-{{ forloop.counter }}.jpg" alt="" class="w-100">
+                        <a href="{% url 'blog:post_detail' post.post_id %}?key={{ forloop.counter }}" class="badge bg-primary">#Placeat</a>        
+                    </div>  
+                </div>
+                <div class="card-body px-2">
+                    <h5 class="card-title mb-2">{{ post.title }}</h5>    
+                    <small class="small text-muted">Published {{ post.publish }} by {{ post.author }}
+                        <span class="px-2">-</span>
+                        <a href="#" class="text-muted">34 Comments</a>
+                    </small>
+                    <p class="my-2">{{ post.body|truncatewords:30|linebreaks }}</p>
+                </div>
+                
+                <div class="card-footer p-0 text-center">
+                    <a href="{% url 'blog:post_detail' post.post_id %}?key={{ forloop.counter }}" class="btn btn-outline-dark btn-sm">READ MORE</a>
+                </div>                  
             </div>
-            <div class="card-body px-2">
-                <h5 class="card-title mb-2">{{ post.title }}</h5>    
-                <small class="small text-muted">Published {{ post.publish }} by {{ post.author }}
-                    <span class="px-2">-</span>
-                    <a href="#" class="text-muted">34 Comments</a>
-                </small>
-                <p class="my-2">{{ post.body|truncatewords:30|linebreaks }}</p>
-            </div>
-            
-            <div class="card-footer p-0 text-center">
-                <a href="{% url 'blog:post_detail' post.post_id %}?key={{ forloop.counter }}" class="btn btn-outline-dark btn-sm">READ MORE</a>
-            </div>                  
+          </div>
+        {% endfor %}
         </div>
-      </div>
-    {% endfor %}
     </div>
-  </section>
+    <div class="page-sidebar text-center">
+      <h6 class="sidebar-title section-title mb-4 mt-3">About</h6>
+      <img src="{% static 'imgs/avatar.jpg' %}" alt="" class="circle-100 mb-3">
+      <p>Consectetur adipisicing elit Possimus tempore facilis dolorum veniam impedit nobis. Quia, soluta incidunt
+        nesciunt dolorem reiciendis iusto.</p>
+      <h6 class="sidebar-title mt-5 mb-4">Tags</h6>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#iusto</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#quibusdam</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#officia</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#animi</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#mollitia</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#quod</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#ipsa at</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#dolor</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#incidunt</a>
+          <a href="javascript:void(0)" class="badge bg-primary text-decoration-none m-1">#possimus</a>
+    </div>
+  </div>
+</section>
 {% endblock content %}
