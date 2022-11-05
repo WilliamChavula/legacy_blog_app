@@ -1,10 +1,60 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} 
 
-{% block title %}{{ post.title }}{% endblock %}
+{% load sass_tags %} 
+
+{% block extra_styles %}
+  <link rel="stylesheet" href="{% sass_src 'blog/scss/main.scss' %}">
+{% endblock extra_styles %}
+
+{% block title %} {{ post.title }} {%endblock %} 
+
+{% block header %}
+<header class="page-header page-header-mini">
+    <h1 class="title">{{ post.title }}</h1>
+    <ol class="breadcrumb pb-0">
+        <li class="breadcrumb-item">
+            <a href="{% url 'blog:home' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            {{ post.title }}
+        </li>
+    </ol>
+</header>
+{% endblock header %} 
+
 {% block content %}
-  <h1>{{ post.title }}</h1>
-  <p class="date">
-    Published {{ post.publish }} by {{ post.author }}
-  </p>
-  {{ post.body|linebreaks }}
+<section class="container">
+  <div class="page-container">
+      <div class="page-content">
+          <div class="card">
+              <div class="card-header pt-0">
+                  <h3 class="card-title mb-4">{{ post.title }}</h3>
+                  <div class="blog-media mb-4">
+                      <img
+                          src="{% static 'imgs/blog-6.jpg' %}"
+                          alt=""
+                          class="w-100"
+                      />
+                      <a href="#" class="badge badge-primary">#Salupt</a>
+                  </div>
+                  <small class="small text-muted">
+                      <a href="#" class="text-muted">{{ post.author }}</a>
+                      <span class="px-2">·</span>
+                      <span>{{ post.publish }}</span>
+                      <span class="px-2">·</span>
+                      <a href="#" class="text-muted">32 Comments</a>
+                  </small>
+              </div>
+              <div class="card-body border-top">
+                  <p class="my-3">
+                    {{ post.body|linebreaks }} 
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
 {% endblock %}
+
+

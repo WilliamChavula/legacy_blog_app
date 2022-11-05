@@ -1,0 +1,15 @@
+.breadcrumb {
+	font-size: $breadcrumb-font-size;
+
+	.breadcrumb-item {
+
+		a {
+			color: $breadcrumb-link-color;
+			text-decoration: none;
+		}
+
+		&.active {
+			color: $breadcrumb-active-color;
+		}
+	}
+}
