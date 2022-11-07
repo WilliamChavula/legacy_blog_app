@@ -1,4 +1,4 @@
-from django.core.paginator import Paginator, Page
+from django.core.paginator import Paginator, Page, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 from blog.service import blog_post_service
@@ -10,7 +10,13 @@ def index(request):
 
     paginator: Paginator = Paginator(posts, 10)
     page_number = request.GET.get('page', 1)
-    paginated_posts: Page = paginator.page(page_number)
+
+    try:
+        paginated_posts: Page = paginator.page(page_number)
+    except PageNotAnInteger:
+        paginated_posts: Page = paginator.page(1)
+    except EmptyPage:
+        paginated_posts: Page = paginator.page(paginator.num_pages)
 
     return render(request, 'blog/index.html', {'posts': paginated_posts})
 
