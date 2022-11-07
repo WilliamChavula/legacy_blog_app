@@ -2,6 +2,7 @@ from uuid import uuid4
 
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 User = get_user_model()
@@ -45,3 +46,6 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return f"{self.post_id}, {self.title}"
+
+    def get_absolute_url(self):
+        return reverse("blog:post_detail", args=(self.post_id,))
