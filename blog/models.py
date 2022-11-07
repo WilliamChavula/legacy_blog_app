@@ -27,7 +27,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name="Blog Post Title",
                              help_text="This is the title of your blog post")
     slug = models.SlugField(
-        max_length=150, help_text="This is the slug form of the title of your blog post", unique_for_date="created")
+        max_length=150, help_text="This is the slug form of the title of your blog post", unique_for_date="publish")
     body = models.TextField(
         help_text="This is the content of your blog post", verbose_name="Blog Post Content")
     status = models.CharField(
@@ -48,4 +48,4 @@ class Post(models.Model):
         return f"{self.post_id}, {self.title}"
 
     def get_absolute_url(self):
-        return reverse("blog:post_detail", args=(self.post_id,))
+        return reverse("blog:post_detail", args=(self.publish.year, self.publish.month, self.publish.day, self.slug))

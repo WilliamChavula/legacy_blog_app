@@ -13,8 +13,8 @@ def get_all_posts():
     return Post.published.all()
 
 
-def get_post_by_id(post_id: str):
-    post = get_object_or_404(Post, post_id=post_id,
+def get_post_by_id(year: int, month: int, day: int, slug: str):
+    post = get_object_or_404(Post, slug=slug, publish__year=year, publish__month=month, publish__day=day,
                              status=Post.Status.PUBLISHED)
 
     return post
