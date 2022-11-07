@@ -119,3 +119,17 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px
 );
+
+// Pagination
+
+$pagination-padding-y:              .3rem;
+$pagination-padding-x:              .7rem;
+$pagination-padding-y-sm:           .15rem;
+$pagination-padding-x-sm:           .5rem;
+$pagination-padding-y-lg:           .4rem ;
+$pagination-padding-x-lg:           1rem ;
+$pagination-border-color:           transparent;
+$pagination-color:                  $gray-800;
+$pagination-hover-bg:               rgba($primary, .3);
+$pagination-hover-border-color:     transparent;
+$component-active-bg: $cyan;
