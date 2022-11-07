@@ -1,0 +1,32 @@
+<h6 class="mt-5 mb-3 text-center">Add Comment</h6>
+<hr>
+<form action="{% url "blog:post_comment" post.post_id %}" method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="row">
+            <div class="col-12 col-sm-6 form-group">
+                {{ form.name }}
+
+                {% if form.name.help_text %}
+                    <p class="form-text">{{ form.name.help_text|safe }}</p>
+                {% endif %}
+            </div>
+            <div class="col-12 col-sm-6 form-group">
+                {{ form.email }}
+                {% if form.email.help_text %}
+                    <p class="form-text">{{ form.email.help_text|safe }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12 form-group">
+            {{ form.body }}
+            {% if form.body.help_text %}
+                <p class="form-text">{{ form.body.help_text|safe }}</p>
+            {% endif %}
+        </div>
+        <div class="form-group col-12">
+            <button type='submit' class="btn btn-primary btn-block">Post Comment</button>
+        </div>
+    </div>
+</form>
+    

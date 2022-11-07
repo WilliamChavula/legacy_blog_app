@@ -42,7 +42,9 @@
                       <span class="px-2">·</span>
                       <span>{{ post.publish }}</span>
                       <span class="px-2">·</span>
-                      <a href="#" class="text-muted">32 Comments</a>
+                      {% with comments.count as total_comments %}
+                      <a href="#" class="text-muted">{{ total_comments }} Comment{{ total_comments|pluralize }}</a>
+                      {% endwith %}
                   </small>
               </div>
               <div class="card-body border-top">
@@ -51,6 +53,15 @@
                   </p>
               </div>
           </div>
+          <hr>
+          {% with comments.count as total_comments %}
+            <h6 class="mt-5 mb-3 text-center">{{ total_comments }} Comment{{ total_comments|pluralize }}</h6>
+          {% endwith %}
+
+          {% for comment in comments %}
+            {% include 'blog/components/comment.html' with comment=comment %}
+          {% endfor %}
+          {% include 'blog/components/comment_form.html' with form=form %}
       </div>
       <div class="page-sidebar">
         {% include 'blog/components/sidebar_tags.html' %}

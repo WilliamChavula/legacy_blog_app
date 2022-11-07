@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="d-flex">
+    <div class="flex-shrink-0">
+        <img src="{% get_static_prefix %}imgs/avatar-{{ img_number }}.jpg" class="mr-3 thumb-sm rounded-circle" alt="...">
+    </div>
+    <div class="flex-grow-1 ms-3">
+        <h6 class="mt-0">{{ comment.name }}</h6>
+        <p class="text-black-50 fs-6"> {{ comment.body }} </p>
+    </div>
+</div>
