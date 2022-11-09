@@ -5,6 +5,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
+from taggit.managers import TaggableManager
+
 User = get_user_model()
 
 
@@ -39,6 +41,7 @@ class Post(models.Model):
         auto_now=True, verbose_name="Blog Post Uodate Date")
     objects = models.Manager()
     published = PublishedManager()
+    tags = TaggableManager()
 
     class Meta:
         ordering = ["-publish"]

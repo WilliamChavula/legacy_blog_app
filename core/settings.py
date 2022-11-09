@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # 3rd Party Dependencies
     'sass_processor',
+    'taggit',
 ]
 
 MIDDLEWARE = [
