@@ -4,8 +4,10 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from taggit.managers import TaggableManager
+from taggit.models import GenericUUIDTaggedItemBase, TaggedItemBase
 
 User = get_user_model()
 
@@ -13,6 +15,12 @@ User = get_user_model()
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=Post.Status.PUBLISHED)
+
+
+class UUIDTaggedItem(GenericUUIDTaggedItemBase, TaggedItemBase):
+    class Meta:
+        verbose_name = _("Tag")
+        verbose_name_plural = _("Tags")
 
 
 class Post(models.Model):
@@ -41,7 +49,7 @@ class Post(models.Model):
         auto_now=True, verbose_name="Blog Post Uodate Date")
     objects = models.Manager()
     published = PublishedManager()
-    tags = TaggableManager()
+    tags = TaggableManager(through=UUIDTaggedItem)
 
     class Meta:
         ordering = ["-publish"]

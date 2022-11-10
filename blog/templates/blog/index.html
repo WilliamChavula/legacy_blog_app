@@ -24,7 +24,7 @@
                 <div class="card-header p-0">                                   
                     <div class="blog-media">
                         <img src="{% get_static_prefix %}imgs/img-{{ forloop.counter }}.jpg" alt="" class="w-100">
-                        <a href="{{ post.get_absolute_url }}?key={{ forloop.counter }}" class="badge bg-primary">#Placeat</a>        
+                        <a href="{{ post.get_absolute_url }}?key={{ forloop.counter }}" class="badge bg-primary">#{{ post.tags.first }}</a>        
                     </div>  
                 </div>
                 <div class="card-body px-2">
