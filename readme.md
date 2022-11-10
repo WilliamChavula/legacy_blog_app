@@ -22,13 +22,13 @@ The application uses the following technologies and libraries or plugins. I used
 
 ## ScreenShots
 
-![HomePage Hero](Legacy%20Blog%20c609f09768f4474eb4f455bdace9152a/Untitled.png)
+![HomePage Hero](/static/index.png.png)
 
-![Blog Posts](Legacy%20Blog%20c609f09768f4474eb4f455bdace9152a/Untitled%201.png)
+![Blog Posts](/static/posts.png.png)
 
-![Detail Page](Legacy%20Blog%20c609f09768f4474eb4f455bdace9152a/Untitled%202.png)
+![Detail Page](/static/detail_page.png.png)
 
-![Detail Page Content](Legacy%20Blog%20c609f09768f4474eb4f455bdace9152a/Untitled%203.png)
+![Detail Page Content](/static/content.png.png)
 
 ## Attribution
 
