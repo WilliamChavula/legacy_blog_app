@@ -22,13 +22,13 @@ The application uses the following technologies and libraries or plugins. I used
 
 ## ScreenShots
 
-![HomePage Hero](/static/index.png.png)
+![HomePage Hero](https://github.com/WilliamChavula/legacy_blog_app/blob/main/static/index.png.png)
 
-![Blog Posts](/static/posts.png.png)
+![Blog Posts](https://github.com/WilliamChavula/legacy_blog_app/blob/main/static/posts.png.png)
 
-![Detail Page](/static/detail_page.png.png)
+![Detail Page](https://github.com/WilliamChavula/legacy_blog_app/blob/main/static/detail_page.png.png)
 
-![Detail Page Content](/static/content.png.png)
+![Detail Page Content](https://github.com/WilliamChavula/legacy_blog_app/blob/main/static/content.png.png)
 
 ## Attribution
 
