@@ -21,6 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # ADD SECRET_KEY HERE!!!
+SECRET_KEY = 'django-insecure-c+)q*c^0u8ri3tt2h!nvr09sq&%ti2y(zkymc+0nz!*479q@=#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'blog.apps.BlogConfig',
+    'blog_api.apps.BlogApiConfig',
 
     # 3rd Party Dependencies
     'sass_processor',
     'taggit',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +89,13 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

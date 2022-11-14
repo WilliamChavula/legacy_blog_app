@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 django-taggit = "*"
+djangorestframework = "*"
 
 [dev-packages]
 libsass = "*"
